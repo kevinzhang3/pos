@@ -57,6 +57,20 @@ void term_putc(char c) {
     }
 }
 
-void term_print(str* s) {
+/**
+ * Print an entire string
+ */
+void term_print(const char* str) {
+    for (size_t i = 0; str[i] != '\0'; ++i) {
+        term_putc(str[i])
+    }
+}
 
-} 
+/**
+ * main
+ */
+void kernel_main(void) {
+    term_init();
+
+    term_print("ENTERED KERNEL\n");
+}
