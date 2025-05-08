@@ -10,7 +10,7 @@ const int VGA_ROWS = 25;
 // globals for placing char
 int term_col = 0;
 int term_row = 0;
-uint8_t term_color = 0x0F // binary 00001111 (black back, white fore)
+uint8_t term_color = 0x0F; // binary 00001111 (black back, white fore)
                           // VGA buf takes:
                           // 4 bits background
                           // 4 bits foreground
@@ -19,7 +19,7 @@ uint8_t term_color = 0x0F // binary 00001111 (black back, white fore)
 /**
  * Initialize the VGA terminal
  */
-void term_init() {
+void term_init(void) {
     // clear the buffer by looping over entire buffer (COLS * ROWS)
     // we clear left to right, index calculated because each new row
     // starts at a multiple of 80 (NCOLS)
@@ -62,7 +62,7 @@ void term_putc(char c) {
  */
 void term_print(const char* str) {
     for (size_t i = 0; str[i] != '\0'; ++i) {
-        term_putc(str[i])
+        term_putc(str[i]);
     }
 }
 

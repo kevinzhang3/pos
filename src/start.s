@@ -6,7 +6,7 @@
 
 .set MB_MAGIC, 0x1BADB002 // set magic number for GRUB (bro wtf does ts do)
 .set MB_FLAGS, (1 << 0 ) | (1 << 1) 
-.set MB_CHECKSUM (0 - (MB_MAGIC + MB_FLAGS)) // checksum
+.set MB_CHECKSUM, (0 - (MB_MAGIC + MB_FLAGS)) // checksum
 
 .section .multiboot
     .align 4

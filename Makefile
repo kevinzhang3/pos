@@ -4,10 +4,8 @@ SRC_DIR = src
 BIN_DIR = bin
 TARGET = kernel.elf
 
-SRC = $(SRC_DIR)/kernel.c $(SRC_DIR)/start.S
-OBJ_C = $(SRC:.c=.o)
-OBJ_S = $(SRC:.S=.o)
-OBJ = $(OBJ_C) $(OBJ_S)
+SRC = $(SRC_DIR)/kernel.c $(SRC_DIR)/start.s
+OBJ = $(BIN_DIR)/kernel.o $(BIN_DIR)/start.o
 
 
 .PHONY: all clean
@@ -23,7 +21,7 @@ $(BIN_DIR):
 $(BIN_DIR)/%.o: $(SRC_DIR)/%.c | $(BIN_DIR)
 	$(CC) -c $< -o $@
 
-$(BIN_DIR)/%.o: $(SRC_DIR)/%.S | $(BIN_DIR)
+$(BIN_DIR)/%.o: $(SRC_DIR)/%.s | $(BIN_DIR)
 	$(CC) -c $< -o $@
 
 $(TARGET): $(OBJ)
